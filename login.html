@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/login.css">
+    <title>login</title>
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <img src="images/logo.png" alt="" height="50px">
+        </div>
+    </header>
+
+    <section class="login-screen">
+        <h1>HEY PLAYER, WELCOME BACK</h1>
+
+        <div class="form-group">
+            <form action="">
+                <label for="">Your email</label>
+                <input type="email" name="emial" id="email"><br><br>
+
+                <label class="password" for="password">password 
+                    <span id="show-hide"><img src="images/show-pass.png" id="pass-icon" onclick="pass()" alt="" height="15px"></span>
+                </label>
+                <input type="password" name="" id="password"><br><br>
+
+                <label class="password" for="password">Confirm password 
+                    <span id="show-hide"><img src="images/show-pass.png" id="pass-icon2" onclick="pass2()" alt="" height="15px"></span>
+                </label>
+                <input type="password" name="" id="password2"><br><br>
+
+
+                    <button class="btn-2" type="submit">Login</button>
+            </form>
+                <div class="">
+                    <a href="">forgot your password?</a>
+                </div>
+        </div>
+
+        <button class="btn-1" type="submit">Create an account</button>
+    </section>
+
+
+    <script>
+        var a;
+        function pass(){
+            if(a==1){
+                document.getElementById('password').type='password';
+                document.getElementById('pass-icon').src='images/show-pass.png';
+                a=0
+            }else{
+                document.getElementById('password').type='text';
+                document.getElementById('pass-icon').src='images/hide-icon.png';
+                a=1; 
+            }
+        }
+
+        // toggle password 2
+
+        var b;
+        function pass2(){
+            if(b==1){
+                document.getElementById('password2').type='password';
+                document.getElementById('pass-icon2').src='images/show-pass.png';
+                b=0
+            }else{
+                document.getElementById('password2').type='text';
+                document.getElementById('pass-icon2').src='images/hide-icon.png';
+                b=1; 
+            }
+        }
+       
+    </script>
+</body>
+</html>

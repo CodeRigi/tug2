@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+header{
+    display: flex;
+    background-color: #AC94D4;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 50px;
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+
+}
+
+.login-screen{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-screen h1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #3B3486;
+}
+
+.login-screen .btn-2{
+    background-color: #3B3486;
+    border: 1px solid #3B3486;
+    border-radius: 8px;
+    padding: 7px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+
+.login-screen .btn-1{
+    background-color: transparent;
+    border: 1px solid #3B3486;
+    border-radius: 30px;
+    padding: 7px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #3B3486;
+    margin-top: 10px;
+    /* display: block; */
+    width: 30%;
+    cursor: pointer;
+}
+.form-group{
+    border: 1px solid gray;
+    height: 45vh;
+    padding: 30px ;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 8px;
+    justify-content: space-between;
+    width: clamp(320px, 50%, 430px);
+}
+
+.form-group input{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: 20px;
+    outline: none;
+    padding: 5px 10px;
+}
+
+
+.password{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.password span{
+    font-size: 13px;
+}
+.password span img{
+    margin-right: 3px;
+    margin-bottom: -3px;
+}

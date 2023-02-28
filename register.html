@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reg.css">
+    <title>register</title>
+</head>
+<body>
+    <header id="header">
+        <div class="logo">
+            <img src="images/logo.png" alt="" height="50px">
+        </div>
+    </header>
+
+    <form action="#" class="form">
+        <h1 class="text-center-h1">HEY PLAYER, IT'S TIME TO PLAY</h1>
+        <p class="text-center-p">SIGN UP FOR TUG SEASON 1</p>
+        <!-- Progress bar -->
+        <div class="progressbar">
+          <div class="progress" id="progress"></div>
+          
+          <div
+            class="progress-step progress-step-active"
+            data-title="Basic info"
+          ></div>
+          <div class="progress-step" data-title="Contact info"></div>
+          <div class="progress-step" data-title="Login info"></div>
+        </div>
+    
+        <!-- Steps -->
+        <div class="form-step form-step-active">
+            <div class="fore-text">
+               <span> <p>1</p> <h3>Basic info</h3></span>
+                <p class="normal">Lorem ipsum dolor sit, amet conistinctio quos? Laborum eveniet nulla,it id nihil beatae autem!</p>
+                <p class="red-text">*All fields required unless noted</p>
+            </div>
+          <div class="input-group">
+            <label for="firstname">*First name</label>
+            <input type="text" name="firstname" id="firstname" required />
+          </div>
+          <div class="input-group">
+            <label for="middlename">Middle name (as applicable)</label>
+            <input type="text" name="middlename" id="middlename" />
+          </div>
+          <div class="input-group">
+            <label for="lastname">*Last name</label>
+            <input type="text" name="lastname" id="lastname" required />
+          </div>
+          <div class="">
+            <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+          </div>
+        </div>
+
+
+
+        <div class="form-step">
+            <div class="fore-text">
+                <span> <p>2</p> <h3>Contact info</h3></span>
+                 <p class="normal">Lorem ipsum dolor sit, amet conistinctio quos? Laborum eveniet nulla,it id nihil beatae autem!</p>
+                 <p class="red-text">*All fields required unless noted</p>
+             </div>
+          <div class="input-group">
+            <label for="phone">*WhatsApp number</label>
+            <input type="number" name="phone" id="phone" />
+          </div>
+          <div class="input-group">
+            <label for="email">*Email address</label>
+            <input type="email" name="email" id="email" />
+          </div>
+          <div class="btns-group">
+            <a href="#" class="btn btn-prev">Previous</a>
+            <a href="#" class="btn btn-next">Next</a>
+          </div>
+        </div>
+
+
+
+        <div class="form-step">
+            <div class="fore-text">
+                <span> <p>3</p> <h3>Login info</h3></span>
+                 <p class="normal">Lorem ipsum dolor sit, amet conistinctio quos? Laborum eveniet nulla,it id nihil beatae autem!</p>
+                 <p class="red-text">*All fields required unless noted</p>
+             </div>
+          <div class="input-group">
+            <label class="password" for="password">password 
+                <span id="show-hide"><img src="images/show-pass.png" id="pass-icon" onclick="pass()" alt="" height="15px"></span>
+            </label>
+            <input type="password" name="" id="password">
+          </div>
+          <div class="input-group">
+            <label class="password" for="password">Confirm password 
+                <span id="show-hide"><img src="images/show-pass.png" id="pass-icon2" onclick="pass2()" alt="" height="15px"></span>
+            </label>
+            <input type="password" name="" id="password2">
+          </div>
+          <div class="btns-group">
+            <a href="#" class="btn btn-prev">Previous</a>
+            <input type="submit" value="Submit" class="btn" />
+          </div>
+        </div>
+      </form>
+
+
+
+    <script>
+        var a;
+        function pass(){
+            if(a==1){
+                document.getElementById('password').type='password';
+                document.getElementById('pass-icon').src='images/show-pass.png';
+                a=0
+            }else{
+                document.getElementById('password').type='text';
+                document.getElementById('pass-icon').src='images/hide-icon.png';
+                a=1; 
+            }
+        }
+
+        // toggle password 2
+
+        var b;
+        function pass2(){
+            if(b==1){
+                document.getElementById('password2').type='password';
+                document.getElementById('pass-icon2').src='images/show-pass.png';
+                b=0
+            }else{
+                document.getElementById('password2').type='text';
+                document.getElementById('pass-icon2').src='images/hide-icon.png';
+                b=1; 
+            }
+        }
+       
+        const prevBtns = document.querySelectorAll(".btn-prev");
+const nextBtns = document.querySelectorAll(".btn-next");
+const progress = document.getElementById("progress");
+const formSteps = document.querySelectorAll(".form-step");
+const progressSteps = document.querySelectorAll(".progress-step");
+
+let formStepsNum = 0;
+
+nextBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    formStepsNum++;
+    updateFormSteps();
+    updateProgressbar();
+  });
+});
+
+prevBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    formStepsNum--;
+    updateFormSteps();
+    updateProgressbar();
+  });
+});
+
+function updateFormSteps() {
+  formSteps.forEach((formStep) => {
+    formStep.classList.contains("form-step-active") &&
+      formStep.classList.remove("form-step-active");
+  });
+
+  formSteps[formStepsNum].classList.add("form-step-active");
+}
+
+function updateProgressbar() {
+  progressSteps.forEach((progressStep, idx) => {
+    if (idx < formStepsNum + 1) {
+      progressStep.classList.add("progress-step-active");
+    } else {
+      progressStep.classList.remove("progress-step-active");
+    }
+  });
+
+  const progressActive = document.querySelectorAll(".progress-step-active");
+
+  progress.style.width =
+    ((progressActive.length - 1) / (progressSteps.length - 1)) * 100 + "%";
+}
+
+    </script>
+</body>
+</html>
